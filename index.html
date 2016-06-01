@@ -7,6 +7,9 @@
 		h1,h2,h3,h4,h5,h6{
 			margin : 0;
 		}
+		body{
+			background-color: rgb(220,140,20);
+		}
 		h1{text-align: center;}
 		h2{text-decoration: underline;margin-bottom : 5px;}
 		.container{
@@ -14,8 +17,17 @@
 		}
 		[class ^="item"]{
 			border-radius: 3px;
-			border : 2px solid #d3d3d3;
-			margin-top : 4px;
+			border-left : 8px solid #d3d3d3;
+			margin-top : 20px;
+		}
+		.description{
+			box-sizing: border-box;
+			margin-top : 20px;
+			color : #ffffff;
+		}
+		.description:before{
+			content : "Tips : ";
+			color : #0000ff;
 		}
 	</style>
 </head>
@@ -169,7 +181,7 @@
 					//这样可以绑定setter和getter
 					computed_2 : {
 						get : function(){
-							return this.a + 1;
+							return this.computed_1 + 1;
 						},
 						set : function(value){
 							return console.log(value);
