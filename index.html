@@ -130,7 +130,9 @@
 			 *	data : 被检测的数据位置，若不在data中声明也可在外部直接用，但是最好声明一下，不用$可以直接访问
 			 *	methods : 方方方法  v-on:'eventType' 的绑定函数在这里声明 ,不用$可以直接访问
 			 *	computed : 计算属性，在其中可以绑定变量与其他变量直接的关系,搜索优先级高于data
-			 *	created、ready等钩子直接写在根里
+			 *	created、ready等钩子直接写在根里,
+			 *	events : 自定义的事件  在任意节点上 this.$dispatch(冒泡)/emit(本身发送)/broadcast(后代) 
+			 *	
 			 *}
 			 */
 			this.a = new Vue({

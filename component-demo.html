@@ -2,17 +2,126 @@
 <html>
 <head>
 	<title>component-domo</title>
+	<meta charset="utf-8">
+	<style>
+		h1,h2,h3,h4,h5,h6{
+			margin : 0;
+		}
+		h1{
+			text-align: center;
+		}
+		h2{
+			text-decoration:underline;
+		}
+		.main{
+			background-color: #00ff0f;
+			box-sizing: border-box;
+			margin : 10px;
+			border-left : 15px solid #888888;
+		}
+	</style>
 </head>
 <body>
-	<div class = "container" id = "root"></div>
+	<h1>Component-demos</h1>
+	<div class = "container">
+		<div id = "root-1">
+			<h2 >1.全局Component</h2>
+			<div class = "main" ><my-component-1></my-component-1></div>
+		</div>
+		<div id = "root-2">
+			<h2 >2.局部Component</h2>
+			<div class = "main"><my-component-2></my-component-2></div>
+		</div>
 
+		<div id = "root-3">
+			<h2 >3.Props属性传参</h2>
+			<div class = "main"><my-component-3 Pmsg = "parent-msg"></my-component-3></div>
+		</div>
+
+		<div id = "root-4">
+			<h2 >4.Props属性传参</h2>
+			<div class = "main"><my-component-4></my-component-4></div>
+		</div>
+
+	</div>
 <script src = "./vue.js"></script>
 <script >
 	window.onload = function(event){
-		var el = {
-			el : "#root"
-		};
-		new Vue(el);
+		/*
+		 * 1  全局Compenent
+		 */
+		
+		//注册
+		var MyComponent = Vue.extend({
+			template : '<div>this is a template</div>'
+		});
+		//设置为全局标签
+		Vue.component("my-component-1",MyComponent);
+		//创建观察实例	must！！！
+		
+
+		/*
+		 * 2  局部Compenent
+		 */
+
+
+		var Child_2 = Vue.extend({
+			template : "<div>this is child</div>"
+		});
+
+		var Parent_2 = Vue.extend({
+			template : "<div><Child></Child></div>",
+			components : {
+				Child : Child_2
+			}
+		});
+		Vue.component("my-component-2",Parent_2);
+
+		/*
+		 * 3  Props传参
+		 */
+
+		 var Child_3 = Vue.extend({
+		 	template : "<div>this is a {{myMsg}}<div>",
+			props : ["myMsg"]
+		 });
+		 var Parent_3 = Vue.extend({
+		 	template : "<div>this is a {{Pmsg}}<Child my-msg = 'child-msg'></Child></div>",
+		 	props : ["Pmsg"],
+		 	components : {
+		 		Child : Child_3
+		 	}
+		 });
+		 Vue.component('my-component-3',Parent_3);
+
+
+
+		/*
+		 * 4  动态Props
+		 * v-bind:name = "value" 将父中value变量绑定到子组建的name当中，当然子组建的props中包含name
+		 * 此为单向数据绑定，即父变子变，子变父不变。
+		 * 可以用.操作符进行双向绑定  .sync : 双向   .once : 一次双向绑定。
+		 */
+
+
+		 var Child_4 = Vue.extend({
+		 	template : "<div>{{child}}</div>",
+			props : ["child"]
+		 });
+		 var Parent_4 = Vue.extend({
+		 	template : "<div><input v-model = 'some'></div><Child v-bind:child = 'some'></Child>",
+		 	components : {
+		 		Child : Child_4
+		 	}
+		 });
+		 Vue.component('my-component-4',Parent_4);
+
+
+
+		var els = [1,2,3,4];
+		els.map(function(index){
+			new Vue({el : "#root-"+index});
+		});	
 	}
 </script>
 </body>
