@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>vue-demo</title>
+	<meta charset="utf-8">
+	<style rel = "stylesheet">
+		h1,h2,h3,h4,h5,h6{
+			margin : 0;
+		}
+		h1{text-align: center;}
+		h2{text-decoration: underline;margin-bottom : 5px;}
+		.container{
+			padding : 20px;
+		}
+		[class ^="item"]{
+			border-radius: 3px;
+			border : 2px solid #d3d3d3;
+			margin-top : 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>vuejs demo</h1>
+	<div class = "container" id = "root">
+
+		<div class = "item-1">
+			<h2>v-model</h2>
+			<div><input type = "text" v-model = "message" /></div>
+			<div>{{message}}</div>
+			<div class = "description"></div>
+		</div>
+
+		<div class = "item-2">
+			<h2>v-for</h2>
+			<div v-for = "item in list">
+			{{$index+1}} : {{item.text}}
+			</div>
+			<div class = "description">
+				v-for = "item in items" 或者 v-for = "(index, item) in items "或者还可以用 of
+			</div>
+		</div>
+
+		<div class = "item-3">
+			<h2>v-on:click v-if v-else </h2>
+			<div ><button v-on:click = "vIf">click</button></div>
+			<div v-if = "isTrue">if</div>
+			<div v-else >else</div>
+			<div class = "description">v-on:click = "func"  v-if = "isTrue" v-if/else/show 类似</div>
+		</div>
+		
+		<div class = "item-4">
+			<h2>hooks</h2>
+			<div id = "hook-root"></div>
+			<div class = "description">Vue({created : function(){}})</div>
+		</div>
+		
+		<div class = "item-5">
+			<h2>Mustache</h2>
+			<div id = "{{two}}">{{{three}}} {{two}}</div>
+			<div class = "description">Mustache-two : 转义，Mustache-three : 不转义  </div>
+		</div>
+
+		<div class = "item-6">
+			<h2>v-bind</h2>
+			<div><a v-bind:href = "href">{{href}}</a></div>
+			<div class = "description">v-bind:href = "href" (绑定href变量)</div>
+		</div>
+
+		<div class = "item-7">
+			<h2>filter</h2>
+			<div>{{filter|orderBy}}</div>
+			<div class = "description"></div>
+		</div>
+
+		<div class = "item-8">
+			<h2>缩写v-bind, v-on</h2>
+			<div>
+				<a :href = "href" >{{href}}</a>
+				<button @click = "vIf">vIf</button>
+			</div>
+			<div class = "description">v-bind:href => :href && v-on:click => @click </div>
+		</div>
+
+		<div class = "item-9">
+			<h2>computed</h2>
+			<div>
+				{{computed_1}}, {{computed_2}}
+			</div>
+			<div class = "description">根下的computed对象中设置，并可以设置getter和setter</div>
+		</div>
+
+		<div class = "item-10">
+			<h2>v-bind:style && v-bind:style</h2>
+			<div>
+				<div v-bind:class = "class" >
+					<div v-bind:style = "style"></div>
+				</div>
+				<div><button @click = "addClass" >add class</button></div>
+			</div>
+			<div class = "description"></div>
+		</div>
+		<div class = "item-11">
+			<h2>v-bind:value</h2>
+			<div>
+				<select  v-model = "selected">
+					<option v-for = "(key, value) of options" v-bind:value = "value">{{key}}</option>
+				</select>
+				<div>Selected : {{selected}}</div>
+			</div>
+		</div>
+	</div>
+	<script src = "./vue.js"></script>
+	<script>
+		window.onload = function(event){
+			/*
+			 *Vue 参数为对象{
+			 *	el : 观察的跟对象
+			 *	data : 被检测的数据位置，若不在data中声明也可在外部直接用，但是最好声明一下，不用$可以直接访问
+			 *	methods : 方方方法  v-on:'eventType' 的绑定函数在这里声明 ,不用$可以直接访问
+			 *	computed : 计算属性，在其中可以绑定变量与其他变量直接的关系,搜索优先级高于data
+			 *	created、ready等钩子直接写在根里
+			 *}
+			 */
+			this.a = new Vue({
+				el : "#root",
+
+				data : {
+					message : "heeh",
+					list : [
+					{text : "list-1"},{text : "list-2"},{text : "list-3"}
+					],
+					isTrue : false,
+					two : "he",
+					three : "<div>haha</div>",
+					href : "http://www.fanhehe.cn",
+					filter : [1,3,2,6,5,4],
+					computed_1 : 123,
+					computed_2 : 22,
+					style : {
+						minHeight : "20px",
+						backgroundColor : "#ff0000"
+					},
+					class : {
+						pid : true,
+						pname : true,
+						heeh : false
+					},
+					checkedNames :[],
+					options : {
+						option_1 : "yes",
+						option_2 : "no"
+					},
+					selected : ""
+				},
+				methods : {
+					vIf : function(event){
+						this.isTrue = !this.isTrue;
+					},
+					addClass : function(){
+					}
+				},
+				created : function(that){
+					//其他 钩子还有compiled、 ready 、destroyed，直接写在根里就好了。
+					document.querySelector('#hook-root').innerHTML = "haha";
+					console.log("ssf");
+				},
+				computed : {
+					//computed_2 :function(){return this.computed_1 + 1} : 这样声明只是get方法
+					//这样可以绑定setter和getter
+					computed_2 : {
+						get : function(){
+							return this.a + 1;
+						},
+						set : function(value){
+							return console.log(value);
+						}
+					}
+				}
+			});
+
+		}
+	</script>
+</body>
+</html>
