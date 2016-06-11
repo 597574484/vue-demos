@@ -1,6 +1,6 @@
-##`webpack` & `Vue`
+##webpack & Vue
 
-### This is a partly of a example of the vue project.
+### This is a relatively complete example.
 
 ```
 It can be run only after install necessary node modules.
