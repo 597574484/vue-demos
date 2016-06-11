@@ -13,14 +13,16 @@ module.exports = {
 	module : {
 		loaders : [
 			{test : /\.js$/, loader : "babel-loader",exclude : /node_modules/},
-			{test : /\.vue$/, loader : "vue-loader"}
+			{test : /\.vue$/, loader : "vue-loader"},
+			{test : /\.less/, loader : "style!css!autoprefixer!less"}
 		],
 	},
 	// .vue的配置。需要单独出来配置
 	vue : {
 		loaders : {
 			js : "babel",
-			css: 'style!css!autoprefixer'
+			css: 'style!css!autoprefixer',
+			less : 'style!css!autoprefixer!less'
 		}
 	},
 	 // 转化成es5的语法
