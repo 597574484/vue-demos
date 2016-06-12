@@ -14,7 +14,8 @@ module.exports = {
 		loaders : [
 			{test : /\.js$/, loader : "babel-loader",exclude : /node_modules/},
 			{test : /\.vue$/, loader : "vue-loader"},
-			{test : /\.less/, loader : "style!css!autoprefixer!less"}
+			{test : /\.less/, loader : "style!css!autoprefixer!less"},
+			{test : /.(jpg|png|ico)$/, loader : 'url?limit=8192'}
 		],
 	},
 	// .vue的配置。需要单独出来配置
