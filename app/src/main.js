@@ -1,6 +1,7 @@
 import vue from 'vue';
-import App from '../components/App.vue'; 
-import MyFooter from '../components/MyFooter.vue';
+import App from './App.vue'; 
+import MyFooter from './components/MyFooter.vue';
+import MyHeader from './components/MyHeader.vue';
 
 new vue({
 	el : "body",
@@ -9,6 +10,7 @@ new vue({
 	},
 	components :{
 		App,
-		MyFooter
+		MyFooter,
+		MyHeader
 	}
 });
