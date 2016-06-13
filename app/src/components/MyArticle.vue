@@ -71,7 +71,7 @@
 		font-weight :bold;
 	}
 	.re-btn{
-		display : block;
+		display : inline-block;
 		text-transform: uppercase;
 	}
 </style>

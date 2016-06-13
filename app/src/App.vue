@@ -1,12 +1,11 @@
 
 <template>
-	<div>
-		<My-Header ></My-Header>
-	</div>
+	<My-Header ></My-Header>
 	<div class = "container main-content">
 		<div class = "row main-row">
-    		<Left-Side-Bar class = "col-sm-4 left-bar hidden-sm" ></Left-Side-Bar>
-			<Main-Section  class = "col-sm-8 main-section col-sm-12" ></Main-Section>
+			
+    		<Left-Side-Bar class = "col-sm-4 hidden-xs left-side-bar"></Left-Side-Bar>
+			<Main-Section  class = "col-sm-8 col-xs-12 main-section"></Main-Section>
     	</div>
 	</div>
 </template>
@@ -33,26 +32,29 @@
         text-decoration: none;
       }
     ::selection, :selection{
-            background-color : #00ffff;
-            color : #ffffff;
-            border-radius: 4px;
-    };
+        background-color : #00ffff;
+        color : #ffffff;
+        border-radius: 4px;
+    }
 	.main-content{
-		position : absolute;
-		top :60px; right:0;bottom:0;left:0;
-		margin :auto;
+		position : relative;
+		top : 60px;
 	}
-	.main-row, .left-bar, .main-section{
-		height : 100%;
+	.left-side-bar{
+		position : fixed;
 	}
 	.main-section{
 		border-left : 1px solid #d3d3d3;
+		position : relative;
 	}
-
 
 	/*Below is global style*/
 	p, h1, h2, h3, h4, h5, h6 ul, li{
 		margin : 0;
 	}
-
+	@media screen and (max-width : 768px){
+		.hidden-xs{
+			display: none;
+		}
+	}
 </style>

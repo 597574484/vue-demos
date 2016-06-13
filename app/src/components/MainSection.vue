@@ -1,8 +1,11 @@
 <style lang = "less">
+	
+	.main-page .article-wrap{
+		margin-top : 30px;
+	}
 	.article-wrap:first-of-type{
 		margin-top : 120px;
 	}
-
 </style>
 
 <template>

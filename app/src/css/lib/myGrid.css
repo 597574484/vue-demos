@@ -687,3 +687,9 @@ body {
         margin-left: 0;
     }
 }
+body:after, .container:after,.row:after,[class^="col"]{
+        display: block;
+        content : "";
+        clear : both;
+        font-size : 0;
+    }
