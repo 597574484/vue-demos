@@ -48,4 +48,11 @@
 	.main-section{
 		border-left : 1px solid #d3d3d3;
 	}
+
+
+	/*Below is global style*/
+	p, h1, h2, h3, h4, h5, h6 ul, li{
+		margin : 0;
+	}
+
 </style>
