@@ -3,8 +3,8 @@
 </style>
 
 <template>
-	<div class="left-bar">
-       left-bar
+	<div class="main-page">
+		main-section
 	</div>
 </template>
 

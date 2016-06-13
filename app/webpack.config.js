@@ -14,6 +14,7 @@ module.exports = {
 		loaders : [
 			{test : /\.js$/, loader : "babel-loader",exclude : /node_modules/},
 			{test : /\.vue$/, loader : "vue-loader"},
+			{test : /\.css/, loader : 'style!css!autoprefixer'},
 			{test : /\.less/, loader : "style!css!autoprefixer!less"},
 			{test : /.(jpg|png|ico)$/, loader : 'url?limit=8192'}
 		],

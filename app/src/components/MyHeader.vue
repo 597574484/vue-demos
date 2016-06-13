@@ -39,6 +39,7 @@
 		font-family : "Trebuchet MS",Helvetica,"Microsoft YaHei",Georgia,sans-serif;
 		.header-style(@height, @bkColor, @color);
 		background-color : #ffffff;
+		z-index : 3;
 	}
 	#logo{
 		background :  url("../assets/favicon_x32.ico") no-repeat center;
@@ -104,9 +105,9 @@
 	}
 	.navbar-btn{
 		position : relative;
-		top : @height*0.1;
-		height : @height * 0.8;
-		width : @height * 0.8;
+		top : @height*0.2;
+		height : @height * 0.6;
+		width : @height * 0.6;
 		border-radius: 4px;
 		background-color : #ffffff;
 		border-width : 1px;
@@ -122,7 +123,7 @@
 		margin-top : 2px;
 
 	}
-	@media screen and (max-width : 750px){
+	@media screen and (max-width : 768px){
 		.navbar-list{
 				display: none;
 		}
@@ -130,7 +131,7 @@
 			display : block;
 		}
 	}
-	@media screen and (min-width : 750px){
+	@media screen and (min-width : 768px){
 		.navbar-btn{
 			display : none;
 		}
