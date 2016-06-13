@@ -3,8 +3,9 @@
 	<My-Header ></My-Header>
 	<div class = "container main-content">
 		<div class = "row main-row">
-			
-    		<Left-Side-Bar class = "col-sm-4 hidden-xs left-side-bar"></Left-Side-Bar>
+			<div class = "col-sm-4 hidden-xs">
+    			<Left-Side-Bar class = "x"></Left-Side-Bar>
+    		</div>
 			<Main-Section  class = "col-sm-8 col-xs-12 main-section"></Main-Section>
     	</div>
 	</div>
@@ -40,8 +41,10 @@
 		position : relative;
 		top : 60px;
 	}
-	.left-side-bar{
+	.x{
 		position : fixed;
+		width : 100%;
+		top : 60px;
 	}
 	.main-section{
 		border-left : 1px solid #d3d3d3;
