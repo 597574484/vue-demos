@@ -40,6 +40,7 @@
 	.article-wrap{
 		margin : 0 @wrapOffsetX;
 		vertical-align: middle;
+		/*min-width :250px;*/
 	}
 	.article-item{
 		font-size : @fontSize;
@@ -50,7 +51,7 @@
 	}
 	.article-time{
 		color : @fontColor;
-		font-weight: bold;
+		font-weight: 600;
 		font-size : @fontSize;
 		line-height : @fontSize;
 	}
@@ -70,9 +71,13 @@
 	.article-title {
 		margin : .3rem 0;
 		font-size : 2 * @fontSize;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 	.article-content{
 		line-height : 210%;
+		font-size : 1.3rem;
 	}
 	.re-btn{
 		display : inline-block;
