@@ -53,5 +53,6 @@
 	.main-section{
 		border-left : 1px solid #d3d3d3;
 		position : relative;
+		background-color : #ffffff;
 	}
 </style>
