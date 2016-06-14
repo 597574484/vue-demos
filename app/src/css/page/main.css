@@ -1,3 +1,6 @@
+body{
+	font-family: "Trebuchet MS",Helvetica,"Microsoft YaHei",Georgia,sans-serif !important;
+}
 p, h1, h2, h3, h4, h5, h6 ul, li{
 	margin : 0;
 }
