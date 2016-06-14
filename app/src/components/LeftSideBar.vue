@@ -8,13 +8,19 @@
 
 <template>
 	<div class = "left-bar">
-       我是侧栏目录
+       <My-Comment></My-Comment>
 	</div>
 </template>
 
 <script>
 	import "../css/lib/myGrid.css";
+	import MyComment from "./MyComment.vue";
 	export default {
-
+		data(){
+			return {}
+		},
+		components : {
+			MyComment
+		}
 	}
 </script>

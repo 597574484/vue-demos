@@ -36,7 +36,6 @@
 		position : fixed;
 		top : 0;
 		width : 100%;
-		font-family : "Trebuchet MS",Helvetica,"Microsoft YaHei",Georgia,sans-serif;
 		.header-style(@height, @bkColor, @color);
 		background-color : #ffffff;
 		z-index : 3;

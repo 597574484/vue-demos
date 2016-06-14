@@ -1,0 +1,17 @@
+html{
+	font-size : 62.5%;
+	-webkit-text-size-adjust : none;
+}
+body{
+	font-family: "Trebuchet MS",Helvetica,"Microsoft YaHei",Georgia,sans-serif !important;
+}
+p, h1, h2, h3, h4, h5, h6 ul, li{
+	margin : 0;
+}
+a{
+    text-decoration: none;
+  }
+::selection {
+    background-color: #0aa284;
+    color: #ffffff;
+}
