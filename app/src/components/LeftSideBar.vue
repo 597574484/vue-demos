@@ -8,7 +8,7 @@
 
 <template>
 	<div class = "left-bar">
-       我是侧栏目录
+       我是侧栏目录ssssssssssssssssssssssssssssssssssssssssssssssss
 	</div>
 </template>
 
