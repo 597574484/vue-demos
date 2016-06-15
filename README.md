@@ -1,5 +1,5 @@
-##This is the vuejs demos.
+##These are some vuejs demos.
 
 
 
-### The file which is in the dir named app is a relatively complete example.
+### The files which are in the dir named app is a relatively complete example.
