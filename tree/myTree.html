@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tree</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		body{
+			font-family: Menlo, Consolas, monospace;
+			color : #444444;
+		}
+		.item {
+        cursor: pointer;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      ul {
+        padding-left: 1em;
+        line-height: 1.5em;
+        list-style-type: dot;
+      }
+	</style>
+	<script src="vue.min.js"></script>
+</head>
+<body>
+	<!-- 模版 js不解析 但是可以被vue引用，type=text/template 也可以，没有也能用，但是会提醒有错。 
+		而且类型被设置为template也会被正确解析成html字串。
+	-->
+	<script type="text/x-template" id="item-template">
+		<li>
+			<div :class="{bold :isFolder}" @click="toggle" @dblclick="changeType">{{model.name}}
+				<span v-if="isFolder">[{{open? '-':'+'}}]</span>
+			</div>
+			<ul v-show="open" v-if="isFolder">
+
+				<!-- :model = "model" 
+					如果model被设置成data数据的话，那么vue默认会到自身的data数据中到，而非父中继承而来。所以model应该写在props中，表示子组建需要从父中继承到这个属性。
+				-->
+				<item class="item" v-for="model in model.children" :model="model"></item>
+				<li @click="addChild">+</li>
+			</ul>
+		</li>
+	</script>
+
+	<ul id="demo">
+		<item class="item" :model="treeData"></item>
+	</ul>
+	<script src="tree2.js"></script>
+</body>
+</html>
