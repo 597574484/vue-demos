@@ -14,8 +14,8 @@ module.exports = {
 		loaders : [
 			{test : /\.js$/, loader : "babel-loader",exclude : /node_modules/},
 			{test : /\.vue$/, loader : "vue-loader"},
-			{test : /\.css/, loader : 'style!css!autoprefixer'},
-			{test : /\.less/, loader : "style!css!autoprefixer!less"},
+			{test : /\.css/, loader : 'style!css!postcss'},
+			{test : /\.less/, loader : "style!css!postcss!less"},
 			{test : /.(jpg|png|ico)$/, loader : 'url?limit=8192'}
 		],
 	},
@@ -23,8 +23,8 @@ module.exports = {
 	vue : {
 		loaders : {
 			js : "babel",
-			css: 'style!css!autoprefixer',
-			less : 'style!css!autoprefixer!less'
+			css: 'style!css!postcss',
+			less : 'style!css!postcss!less'
 		}
 	},
 	 // 转化成es5的语法

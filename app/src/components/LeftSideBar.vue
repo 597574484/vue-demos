@@ -1,5 +1,3 @@
-
-
 <style lang = "less">
 	.left-bar{
 		font-size : 1rem;
@@ -8,19 +6,17 @@
 
 <template>
 	<div class = "left-bar">
-       <My-Comment></My-Comment>
-	</div>
+		ss
+    </div>
 </template>
 
 <script>
 	import "../css/lib/myGrid.css";
-	import MyComment from "./MyComment.vue";
 	export default {
 		data(){
 			return {}
 		},
-		components : {
-			MyComment
+		components: {
 		}
 	}
 </script>

@@ -5,7 +5,7 @@
 			<div class = "navbar-list">
 				<a href = "#">首页</a>
 				<a href = "#">笔迹</a>
-				<a href = "#">Hehe</a>
+				<a href = "#">其他</a>
 				<span class = "move"></span>
 			</div>
 			<button class = "navbar-btn">

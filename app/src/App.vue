@@ -2,7 +2,7 @@
 	<My-Header ></My-Header>
 	<div class = "container main-content">
 		<div class = "row main-row">
-			<div class = "col-sm-4 hidden-xs left-sidebar-wrap">
+			<div class = "col-sm-4 hidden-xs">
     			<Left-Side-Bar class = "left-sidebar"></Left-Side-Bar>
     		</div>
 			<Main-Section  class = "col-sm-8 col-xs-12 main-section"></Main-Section>
@@ -18,7 +18,7 @@
 	import MainSection from './components/MainSection.vue';
 	export default {
 		data(){
-			return {msg : "hehea"};
+			return {msg : "hehe"};
 		},
 		components :{
 			MyHeader,
@@ -29,26 +29,18 @@
 </script>
 
 <style lang = "less">
-	@left-sidebar-width : 250px;
 	.main-content{
 		position : relative;
 		top : 60px;
 	}
-	.left-sidebar-wrap{
-		position : relative;
-	}
-	.left-sidebar-wrap:after{
-		display: block;
-		content : "";
-		font-size : 0;
-		clear: both;
-	}
 	.left-sidebar{
 		position : fixed;
-		max-width : @left-sidebar-width;
 		overflow : hidden;
 		top : 60px;
 		left : 0;
+		width : 35.33%;
+		height : 100%;
+		padding : 15px;
 	}
 	.main-section{
 		border-left : 1px solid #d3d3d3;
